@@ -6,7 +6,9 @@
         var url="http://192.168.3.158:8088/infor";
         function loadXMLDoc()
         {
+            //1,声明一个对象
             var xmlhttp;
+            //2,根据浏览器的不同创建不同的对象
             if (window.XMLHttpRequest)
             {
                 // IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
@@ -17,6 +19,7 @@
                 // IE6, IE5 浏览器执行代码
                 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
             }
+            //3,根据状态的不同进行相应的操作
             xmlhttp.onreadystatechange=function()
             {
                 if (xmlhttp.readyState==4 && xmlhttp.status==200)
@@ -29,7 +32,6 @@
                     console.log(ob)
                     //4,把title现实在页面
                     document.getElementById("title").innerHTML=ob.title;
-
                     document.getElementById("img").src=ob.subjects[0].images.small;
                 }
             }
