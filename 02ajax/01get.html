@@ -26,8 +26,9 @@
                 {
                    //1,获得返回的json格式数据
                     var data =xmlhttp.responseText;
+                    console.log(data)
                    //2,把json格式数据转为json对象
-                    var ob =JSON.parse(data);
+                    var ob =JSON.parse(xmlhttp.responseText);
                     //3,输出对象
                     console.log(ob)
                     //4,把title现实在页面
