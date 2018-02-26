@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <script>
-        var url="http://192.168.3.158:8088/infor";
+        var url="http://localhost:8088/get";
         function loadXMLDoc()
         {
             //1,声明一个对象
@@ -28,7 +28,7 @@
                     var data =xmlhttp.responseText;
                     console.log(data)
                    //2,把json格式数据转为json对象
-                    var ob =JSON.parse(xmlhttp.responseText);
+                    var ob =JSON.parse(data);
                     //3,输出对象
                     console.log(ob)
                     //4,把title现实在页面
