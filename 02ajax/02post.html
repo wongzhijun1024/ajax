@@ -4,10 +4,12 @@
     <meta charset="utf-8">
     <script>
 
-        var url="https://www.baidu.com/";
+        var url="http://localhost:8088/post";
         function loadXMLDoc()
         {
+            //1,声明一个对象
             var xmlhttp;
+            //2,根据浏览器的不同创建不同的对象
             if (window.XMLHttpRequest)
             {
                 // IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
@@ -18,15 +20,22 @@
                 // IE6, IE5 浏览器执行代码
                 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
             }
+            //3,获得服务器返回的参数后进行相应的操作
             xmlhttp.onreadystatechange=function()
             {
                 if (xmlhttp.readyState==4 && xmlhttp.status==200)
                 {
-                    document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+                    alert(xmlhttp.responseText);
+
                 }
             }
+
+            //3,用post方式向url服务器以异步的方式提交数据
             xmlhttp.open("POST",url,true);
-            xmlhttp.send();
+            //4,设置头文件。ajax以post提交数据必须加这个头文件
+            xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+            //5,提交参数
+            xmlhttp.send("id=934875&name=king");
         }
     </script>
 </head>
